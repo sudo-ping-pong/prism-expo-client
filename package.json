@@ -41,6 +41,11 @@
       "types": "./dist/middleware/redux.d.ts",
       "import": "./dist/middleware/redux.js",
       "default": "./dist/middleware/redux.js"
+    },
+    "./axios": {
+      "types": "./dist/patches/axios.d.ts",
+      "import": "./dist/patches/axios.js",
+      "default": "./dist/patches/axios.js"
     }
   },
   "files": ["dist", "src"],
@@ -78,7 +83,8 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "redux": ">=4.0.0",
-    "zustand": ">=4.0.0"
+    "zustand": ">=4.0.0",
+    "axios": ">=1.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -89,11 +95,15 @@
     },
     "zustand": {
       "optional": true
+    },
+    "axios": {
+      "optional": true
     }
   },
   "devDependencies": {
     "@prism/protocol": "workspace:*",
     "@types/react": "^19.0.2",
+    "axios": "^1.7.9",
     "react": "^19.0.0",
     "redux": "^5.0.1",
     "typescript": "^5.7.3",

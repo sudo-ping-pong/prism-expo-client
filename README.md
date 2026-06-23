@@ -55,7 +55,7 @@ initPrism({
 
 | Stream | Default | Source |
 |--------|---------|--------|
-| Network | on | `fetch` + `XMLHttpRequest` |
+| Network | on | `fetch`, `XMLHttpRequest`, and `axios` (if installed) |
 | Console | on | `console.log` / `warn` / `error` |
 | State | opt-in | Redux or Zustand middleware |
 | Performance | opt-in | `PrismProfiler` wrapper |
@@ -114,13 +114,42 @@ const useStore = create(
 initPrism({
   host: '192.168.1.100',
   port: 8080,           // default 8080
-  network: true,        // fetch + XHR
+  network: true,        // fetch + XHR + axios (when installed)
   logs: true,           // console
   forceEnable: false,   // only __DEV__ when false
   onConnect: () => {},
   onDisconnect: () => {},
   onError: (err) => {},
 });
+```
+
+## Axios
+
+Install axios in your app — Prism auto-patches the default instance and instances from `axios.create()`:
+
+```bash
+pnpm add axios
+```
+
+```ts
+import axios from 'axios';
+import { initPrismLocal } from '@prism/expo-client';
+
+initPrismLocal('192.168.1.100');
+
+const { data } = await axios.get('https://api.example.com/users');
+```
+
+Requests appear in Prism with initiator **AXIOS**. Duplicate fetch/XHR events are suppressed while axios handles the request.
+
+To patch a specific axios module manually:
+
+```ts
+import axios from 'axios';
+import { initPrism, installAxiosPatch } from '@prism/expo-client';
+
+initPrism({ host: '192.168.1.100' });
+installAxiosPatch(axios);
 ```
 
 ## Subpath exports

@@ -1,6 +1,7 @@
 import { PrismTransport } from './transport';
 import { installFetchPatch } from './patches/fetch';
 import { installXhrPatch } from './patches/xhr';
+import { installAxiosPatch } from './patches/axios';
 import { installConsolePatch } from './patches/console';
 import { setActiveTransport } from './transport-registry';
 import { createPrismLocalConfig } from './config';
@@ -59,6 +60,7 @@ function installPatches(config: PrismConfig): void {
   if (config.network !== false) {
     unsubs.push(installFetchPatch());
     unsubs.push(installXhrPatch());
+    unsubs.push(installAxiosPatch());
   }
   if (config.logs !== false) {
     unsubs.push(installConsolePatch());
@@ -133,6 +135,7 @@ export {
 export type { PrismReduxOptions, PrismReplaceStateAction } from './middleware/redux';
 export { parsePrismConnectUri } from '@prism/protocol';
 export type { PrismConnectConfig, PrismCommand, StateSource } from '@prism/protocol';
+export { installAxiosPatch } from './patches/axios';
 export { createPrismLocalConfig } from './config';
 export type { PrismLocalConfigOptions } from './config';
 

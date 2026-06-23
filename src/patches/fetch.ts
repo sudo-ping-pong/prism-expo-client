@@ -1,5 +1,6 @@
 import type { NetworkPayload } from '@prism/protocol';
 import { captureNetworkEvent } from '../capture';
+import { shouldSkipNetworkCapture } from './capture-guard';
 
 export function headersToRecord(
   headers: Headers | Record<string, string> | undefined,
@@ -40,6 +41,10 @@ export function installFetchPatch(): () => void {
     input: RequestInfo | URL,
     init?: RequestInit,
   ): Promise<Response> {
+    if (shouldSkipNetworkCapture()) {
+      return originalFetch(input, init);
+    }
+
     const start = Date.now();
     const url =
       typeof input === 'string'

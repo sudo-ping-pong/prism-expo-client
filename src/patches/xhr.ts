@@ -1,5 +1,6 @@
 import type { NetworkPayload } from '@prism/protocol';
 import { captureNetworkEvent } from '../capture';
+import { shouldSkipNetworkCapture } from './capture-guard';
 
 type XHROpen = typeof XMLHttpRequest.prototype.open;
 type XHRSend = typeof XMLHttpRequest.prototype.send;
@@ -33,6 +34,10 @@ export function installXhrPatch(): () => void {
   };
 
   XMLHttpRequest.prototype.send = function (body?: Document | XMLHttpRequestBodyInit | null) {
+    if (shouldSkipNetworkCapture()) {
+      return originalSend.call(this, body);
+    }
+
     const prism = (this as XMLHttpRequest & {
       _prism?: {
         method: string;
