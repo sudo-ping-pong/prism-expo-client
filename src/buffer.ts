@@ -1,5 +1,5 @@
-import type { PrismEnvelope } from '@prism/protocol';
-import { PRISM_MAX_BUFFER_SIZE } from '@prism/protocol';
+import type { PrismEnvelope } from '@sudo-ping-pong/prism-protocol';
+import { PRISM_MAX_BUFFER_SIZE } from '@sudo-ping-pong/prism-protocol';
 
 export class EventBuffer {
   private buffer: PrismEnvelope[] = [];

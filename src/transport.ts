@@ -1,5 +1,5 @@
-import type { PrismEnvelope, PrismHandshakeAck } from '@prism/protocol';
-import { isPrismCommand } from '@prism/protocol';
+import type { PrismEnvelope, PrismHandshakeAck } from '@sudo-ping-pong/prism-protocol';
+import { isPrismCommand } from '@sudo-ping-pong/prism-protocol';
 import { EventBuffer } from './buffer';
 import { handlePrismCommand } from './command-handler';
 

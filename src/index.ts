@@ -133,8 +133,8 @@ export {
   PRISM_REPLACE_STATE,
 } from './middleware/redux';
 export type { PrismReduxOptions, PrismReplaceStateAction } from './middleware/redux';
-export { parsePrismConnectUri } from '@prism/protocol';
-export type { PrismConnectConfig, PrismCommand, StateSource } from '@prism/protocol';
+export { parsePrismConnectUri } from '@sudo-ping-pong/prism-protocol';
+export type { PrismConnectConfig, PrismCommand, StateSource } from '@sudo-ping-pong/prism-protocol';
 export { installAxiosPatch } from './patches/axios';
 export { createPrismLocalConfig } from './config';
 export type { PrismLocalConfigOptions } from './config';

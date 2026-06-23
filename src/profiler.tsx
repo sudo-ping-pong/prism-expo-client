@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Profiler, type ProfilerOnRenderCallback } from 'react';
-import { createEnvelope } from '@prism/protocol';
-import type { PerformancePayload } from '@prism/protocol';
+import { createEnvelope } from '@sudo-ping-pong/prism-protocol';
+import type { PerformancePayload } from '@sudo-ping-pong/prism-protocol';
 import { sendToPrism } from './transport-registry';
 
 export interface PrismProfilerProps {

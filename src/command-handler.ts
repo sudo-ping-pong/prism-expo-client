@@ -1,4 +1,4 @@
-import { isPrismCommand } from '@prism/protocol';
+import { isPrismCommand } from '@sudo-ping-pong/prism-protocol';
 import { dispatchPrismReduxCommand } from './middleware/redux';
 
 export function handlePrismCommand(raw: unknown): void {

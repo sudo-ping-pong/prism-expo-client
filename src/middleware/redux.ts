@@ -1,5 +1,5 @@
 import type { Store, Action, Reducer } from 'redux';
-import type { StatePayload } from '@prism/protocol';
+import type { StatePayload } from '@sudo-ping-pong/prism-protocol';
 import { captureStateEvent } from '../capture';
 
 /** Dispatched by Prism to replace the entire Redux state (time-travel jump). */

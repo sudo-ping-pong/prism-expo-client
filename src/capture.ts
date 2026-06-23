@@ -1,5 +1,5 @@
-import { createEnvelope } from '@prism/protocol';
-import type { LogLevel, LogPayload, NetworkPayload, StatePayload } from '@prism/protocol';
+import { createEnvelope } from '@sudo-ping-pong/prism-protocol';
+import type { LogLevel, LogPayload, NetworkPayload, StatePayload } from '@sudo-ping-pong/prism-protocol';
 import { sendToPrism } from './transport-registry';
 
 export function captureLogEvent(level: LogLevel, args: unknown[]): void {

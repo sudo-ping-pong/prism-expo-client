@@ -1,4 +1,4 @@
-import type { StatePayload } from '@prism/protocol';
+import type { StatePayload } from '@sudo-ping-pong/prism-protocol';
 import { captureStateEvent } from '../capture';
 
 export interface PrismZustandOptions {

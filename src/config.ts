@@ -1,4 +1,4 @@
-import { PRISM_DEFAULT_PORT } from '@prism/protocol';
+import { PRISM_DEFAULT_PORT } from '@sudo-ping-pong/prism-protocol';
 import type { PrismTransportError } from './transport';
 
 export interface PrismLocalConfigOptions {

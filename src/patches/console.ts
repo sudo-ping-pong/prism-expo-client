@@ -1,4 +1,4 @@
-import type { LogLevel } from '@prism/protocol';
+import type { LogLevel } from '@sudo-ping-pong/prism-protocol';
 import { captureLogEvent } from '../capture';
 
 type ConsoleFn = (...args: unknown[]) => void;

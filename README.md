@@ -1,22 +1,24 @@
-# @prism/expo-client
+# @sudo-ping-pong/prism-expo-client
 
 Real-time debugging SDK for **Expo** and **React Native**. Streams network requests, console output, and Redux/Zustand state to **Prism DevTools** on your Mac.
 
 ## Requirements
 
 - Expo SDK 49+ or React Native 0.72+
-- Prism DevTools macOS app (DMG) or `@prism/server` + desktop UI
+- [Prism DevTools](https://github.com/sudo-ping-pong/prism-expo-client) macOS app (DMG)
 - Device/simulator and Mac on the **same Wi‑Fi**
 
 ## Install
 
 ```bash
-npm install @prism/expo-client
+npm install @sudo-ping-pong/prism-expo-client
 # or
-pnpm add @prism/expo-client
+pnpm add @sudo-ping-pong/prism-expo-client
 # or
-yarn add @prism/expo-client
+yarn add @sudo-ping-pong/prism-expo-client
 ```
+
+[`@sudo-ping-pong/prism-protocol`](https://www.npmjs.com/package/@sudo-ping-pong/prism-protocol) is installed automatically as a dependency.
 
 ## Quick start
 
@@ -25,7 +27,7 @@ yarn add @prism/expo-client
 3. Initialize the SDK as early as possible in your app entry file:
 
 ```ts
-import { initPrismLocal, PrismProfiler } from '@prism/expo-client';
+import { initPrismLocal, PrismProfiler } from '@sudo-ping-pong/prism-expo-client';
 
 initPrismLocal('192.168.1.100');
 
@@ -43,7 +45,7 @@ export default function App() {
 ### Manual host + port
 
 ```ts
-import { initPrism } from '@prism/expo-client';
+import { initPrism } from '@sudo-ping-pong/prism-expo-client';
 
 initPrism({
   host: '192.168.1.100',
@@ -70,7 +72,7 @@ import {
   prismReduxMiddleware,
   withPrismStateReplay,
   registerPrismReduxStore,
-} from '@prism/expo-client';
+} from '@sudo-ping-pong/prism-expo-client';
 
 const store = configureStore({
   reducer: withPrismStateReplay(rootReducer),
@@ -86,13 +88,13 @@ In Prism DevTools → **State**, select an action and use **Replay Action** or *
 
 ```ts
 import { create } from 'zustand';
-import { prismZustandMiddleware } from '@prism/expo-client';
+import { prismZustandMiddleware } from '@sudo-ping-pong/prism-expo-client';
 
 const useStore = create(
   prismZustandMiddleware('my-store')((set) => ({
-  count: 0,
-  increment: () => set((s) => ({ count: s.count + 1 })),
-})),
+    count: 0,
+    increment: () => set((s) => ({ count: s.count + 1 })),
+  })),
 );
 ```
 
@@ -107,6 +109,7 @@ const useStore = create(
 | `PrismProfiler` | Capture React render timings |
 | `prismReduxMiddleware` | Redux action + state snapshots |
 | `prismZustandMiddleware` | Zustand state snapshots |
+| `installAxiosPatch(axios?)` | Patch axios interceptors manually |
 
 ### Config options
 
@@ -133,7 +136,7 @@ pnpm add axios
 
 ```ts
 import axios from 'axios';
-import { initPrismLocal } from '@prism/expo-client';
+import { initPrismLocal } from '@sudo-ping-pong/prism-expo-client';
 
 initPrismLocal('192.168.1.100');
 
@@ -146,7 +149,7 @@ To patch a specific axios module manually:
 
 ```ts
 import axios from 'axios';
-import { initPrism, installAxiosPatch } from '@prism/expo-client';
+import { initPrism, installAxiosPatch } from '@sudo-ping-pong/prism-expo-client';
 
 initPrism({ host: '192.168.1.100' });
 installAxiosPatch(axios);
@@ -155,9 +158,10 @@ installAxiosPatch(axios);
 ## Subpath exports
 
 ```ts
-import { prismReduxMiddleware } from '@prism/expo-client/redux';
-import { prismZustandMiddleware } from '@prism/expo-client/zustand';
-import { PrismProfiler } from '@prism/expo-client/profiler';
+import { prismReduxMiddleware } from '@sudo-ping-pong/prism-expo-client/redux';
+import { prismZustandMiddleware } from '@sudo-ping-pong/prism-expo-client/zustand';
+import { PrismProfiler } from '@sudo-ping-pong/prism-expo-client/profiler';
+import { installAxiosPatch } from '@sudo-ping-pong/prism-expo-client/axios';
 ```
 
 ## Troubleshooting
@@ -175,7 +179,7 @@ import { PrismProfiler } from '@prism/expo-client/profiler';
 
 ## Related packages
 
-- [`@prism/protocol`](https://www.npmjs.com/package/@prism/protocol) — shared wire types (dependency)
+- [`@sudo-ping-pong/prism-protocol`](https://www.npmjs.com/package/@sudo-ping-pong/prism-protocol) — shared wire types (dependency)
 
 ## License
 

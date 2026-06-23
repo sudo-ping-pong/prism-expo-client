@@ -1,6 +1,6 @@
 {
-  "name": "@prism/expo-client",
-  "version": "0.1.0",
+  "name": "@sudo-ping-pong/prism-expo-client",
+  "version": "0.1.1",
   "description": "Client SDK for Prism DevTools — network, log, and state interception for Expo and React Native",
   "license": "MIT",
   "type": "module",
@@ -51,13 +51,12 @@
   "files": ["dist", "src"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prism-devtools/prism.git",
-    "directory": "packages/prism-expo-client"
+    "url": "git+https://github.com/sudo-ping-pong/prism-expo-client.git"
   },
   "bugs": {
-    "url": "https://github.com/prism-devtools/prism/issues"
+    "url": "https://github.com/sudo-ping-pong/prism-expo-client/issues"
   },
-  "homepage": "https://github.com/prism-devtools/prism#readme",
+  "homepage": "https://github.com/sudo-ping-pong/prism-expo-client#readme",
   "keywords": [
     "prism",
     "devtools",
@@ -78,7 +77,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@prism/protocol": "workspace:*"
+    "@sudo-ping-pong/prism-protocol": "^0.1.1"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -101,7 +100,7 @@
     }
   },
   "devDependencies": {
-    "@prism/protocol": "workspace:*",
+    "@sudo-ping-pong/prism-protocol": "^0.1.1",
     "@types/react": "^19.0.2",
     "axios": "^1.7.9",
     "react": "^19.0.0",

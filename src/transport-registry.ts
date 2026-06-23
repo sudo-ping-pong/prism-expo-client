@@ -1,4 +1,4 @@
-import type { PrismEnvelope } from '@prism/protocol';
+import type { PrismEnvelope } from '@sudo-ping-pong/prism-protocol';
 import type { PrismTransport } from './transport';
 
 export interface PrismTransportSink {

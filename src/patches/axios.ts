@@ -5,7 +5,7 @@ import type {
   AxiosStatic,
   InternalAxiosRequestConfig,
 } from 'axios';
-import type { NetworkPayload } from '@prism/protocol';
+import type { NetworkPayload } from '@sudo-ping-pong/prism-protocol';
 import { captureNetworkEvent } from '../capture';
 import { runWithoutNetworkCaptureAsync, shouldSkipNetworkCapture } from './capture-guard';
 import { headersToRecord } from './fetch';
