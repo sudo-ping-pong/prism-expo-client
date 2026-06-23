@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Expo / React Native
+.expo/
+.expo-shared/
+.metro-health-check*
+
+# Environment
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs & debug
+*.log
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+
+# Monorepo / tooling caches
+.turbo/
+
+# OS
+.DS_Store
+Thumbs.db

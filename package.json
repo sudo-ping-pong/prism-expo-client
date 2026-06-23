@@ -1,0 +1,102 @@
+{
+  "name": "@prism/expo-client",
+  "version": "0.1.0",
+  "description": "Client SDK for Prism DevTools — network, log, and state interception for Expo and React Native",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "react-native": "./src/index.ts",
+  "exports": {
+    ".": {
+      "react-native": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./zustand": {
+      "react-native": "./src/middleware/zustand.ts",
+      "types": "./dist/middleware/zustand.d.ts",
+      "import": "./dist/middleware/zustand.js",
+      "default": "./dist/middleware/zustand.js"
+    },
+    "./profiler": {
+      "react-native": "./src/profiler.tsx",
+      "types": "./dist/profiler.d.ts",
+      "import": "./dist/profiler.js",
+      "default": "./dist/profiler.js"
+    },
+    "./capture": {
+      "types": "./dist/capture.d.ts",
+      "import": "./dist/capture.js",
+      "default": "./dist/capture.js"
+    },
+    "./transport-registry": {
+      "types": "./dist/transport-registry.d.ts",
+      "import": "./dist/transport-registry.js",
+      "default": "./dist/transport-registry.js"
+    },
+    "./redux": {
+      "react-native": "./src/middleware/redux.ts",
+      "types": "./dist/middleware/redux.d.ts",
+      "import": "./dist/middleware/redux.js",
+      "default": "./dist/middleware/redux.js"
+    }
+  },
+  "files": ["dist", "src"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prism-devtools/prism.git",
+    "directory": "packages/prism-expo-client"
+  },
+  "bugs": {
+    "url": "https://github.com/prism-devtools/prism/issues"
+  },
+  "homepage": "https://github.com/prism-devtools/prism#readme",
+  "keywords": [
+    "prism",
+    "devtools",
+    "expo",
+    "react-native",
+    "debugging",
+    "redux",
+    "zustand",
+    "websocket"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@prism/protocol": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "redux": ">=4.0.0",
+    "zustand": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "redux": {
+      "optional": true
+    },
+    "zustand": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@prism/protocol": "workspace:*",
+    "@types/react": "^19.0.2",
+    "react": "^19.0.0",
+    "redux": "^5.0.1",
+    "typescript": "^5.7.3",
+    "zustand": "^5.0.3"
+  }
+}
